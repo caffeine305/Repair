@@ -24,6 +24,10 @@ public class EnchufeEntrada : MonoBehaviour
         {
             tieneEnergia = false;
         }
+        if(cableConectado!=null)
+        {
+            this.cableConectado.transform.position = this.gameObject.transform.position;
+        }
 
         // si hay una puerta a la que este componente pueda acceder, entonces activala
         if (this.puerta != null && this.tieneEnergia)
@@ -45,11 +49,10 @@ public class EnchufeEntrada : MonoBehaviour
             GameObject finCable = collision.gameObject.GetComponent<CableEnd>().gameObject;
             Debug.Log("Se detectó un final de cable");
             // obliga al inicio del cable a conectarse con el enchufe
-            Vector3 posicionEnchufe = this.gameObject.transform.position;
+            Vector3 posicionEnchufe = this.transform.position;
             finCable.transform.position = posicionEnchufe;
             // validar si el finCable tiene un material diferente al default y si tiene energia
-            finCable.GetComponent<Rigidbody>().isKinematic = true;
-            finCable.GetComponent<Rigidbody>().useGravity = false;
+            finCable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             collision.gameObject.GetComponent<CableEnd>().estaConectado = true;
             if (finCable.GetComponent<Renderer>().material.color == this.GetComponentInParent<Renderer>().material.color)
             {

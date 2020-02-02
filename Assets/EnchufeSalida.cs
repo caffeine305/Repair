@@ -18,6 +18,7 @@ public class EnchufeSalida : MonoBehaviour
         {
             // le mete o quita energia al cable
             this.cableConectado.GetComponent<CableComponent>().tieneEnergia = this.tieneEnergia;
+            
             if (tieneEnergia)
             {   
                 // colorea el inicio, el cable, y el fin.
@@ -34,6 +35,7 @@ public class EnchufeSalida : MonoBehaviour
                 this.cableConectado.GetComponent<CableComponent>().line.material = this.cableConectado.GetComponent<CableComponent>().defaultCableMaterial;
 
             }
+            
 
         }
         
