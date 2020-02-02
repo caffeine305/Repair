@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: a262c1cd876da934d86e2a8ee0089db2
-timeCreated: 1444228668
-licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - endPoint: {instanceID: 0}
+  - cableMaterial: {fileID: 2100000, guid: e20a2186cc0884c4186cd848b087703e, type: 2}
+  - defaultCableMaterial: {fileID: 2100000, guid: e20a2186cc0884c4186cd848b087703e,
+      type: 2}
+  - line: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

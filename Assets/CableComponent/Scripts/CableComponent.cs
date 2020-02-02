@@ -7,8 +7,10 @@ public class CableComponent : MonoBehaviour
 {
 	#region Class members
 
-	[SerializeField] private Transform endPoint;
-	[SerializeField] private Material cableMaterial;
+	public Transform endPoint;
+	public Material cableMaterial;
+	public Material defaultCableMaterial;
+	public bool tieneEnergia;
 
 	// Cable config
 	[SerializeField] private float cableLength = 0.5f;
@@ -24,7 +26,7 @@ public class CableComponent : MonoBehaviour
 	//[Range(0,3)]
 	[SerializeField] private float stiffness = 1f;
 
-	private LineRenderer line;
+	public LineRenderer line;
 	private CableParticle[] points;
 
 	#endregion
@@ -90,6 +92,7 @@ public class CableComponent : MonoBehaviour
 	void Update()
 	{
 		RenderCable();
+		this.endPoint.gameObject.GetComponent<CableEnd>().recibeEnergia = this.tieneEnergia;
 	}
 
 	/**
