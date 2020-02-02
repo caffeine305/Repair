@@ -24,6 +24,10 @@ public class PickupObject : MonoBehaviour
 
                 PickedObject.GetComponent<Rigidbody>().useGravity = false;
                 PickedObject.GetComponent<Rigidbody>().isKinematic = true;
+                if(PickedObject.GetComponent<CableEnd>() != null)
+                {
+                    PickedObject.GetComponent<CableEnd>().estaConectado = false;
+                }
             }   
         }else if(PickedObject!=null)
         {
@@ -32,9 +36,19 @@ public class PickupObject : MonoBehaviour
 
                 PickedObject.GetComponent<PickableObject>().isPickable=true;
                 PickedObject.transform.SetParent(null);
-
-                PickedObject.GetComponent<Rigidbody>().useGravity = true;
-                PickedObject.GetComponent<Rigidbody>().isKinematic = false;
+                if(PickedObject.GetComponent<CableEnd>() == null)
+                {
+                    PickedObject.GetComponent<Rigidbody>().useGravity = true;
+                    PickedObject.GetComponent<Rigidbody>().isKinematic = false;
+                } else 
+                {
+                    // si el cable esta conectado, no le quites el kinematic
+                    if (PickedObject.GetComponent<CableEnd>().estaConectado)
+                    {
+                        PickedObject.GetComponent<Rigidbody>().useGravity = false;
+                        PickedObject.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                }
                 PickedObject= null;
             }
 

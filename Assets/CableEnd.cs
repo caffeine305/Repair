@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CableEnd : MonoBehaviour
 {
-    public bool recibeEnergia = false;
+    public bool recibeEnergia = false, estaConectado = false;
     // Start is called before the first frame update
     void Start()
     {

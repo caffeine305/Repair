@@ -13,10 +13,10 @@ public class Puerta : MonoBehaviour
     void Update()
     {
     }
-    public void cambiarStatus(bool visible)
+    public void cambiarStatus(bool tieneEnergia)
     {
         // this.gameObject.SetActive(!visible);
-        if(!visible)
+        if(tieneEnergia)
         {
             AudioSource sonido = this.gameObject.GetComponent<AudioSource>();
             sonido.Play(0);

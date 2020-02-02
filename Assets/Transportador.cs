@@ -15,12 +15,12 @@ public class Transportador : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.GetComponent<movimiento>() != null)
+        if (collision.gameObject.GetComponent<movimiento>() != null)
         {
             SceneManager.LoadScene(numeroEscena);
         }
-            
     }
+    
 }
